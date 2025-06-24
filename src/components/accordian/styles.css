@@ -40,3 +40,13 @@
   color: white;
   height: auto;
 }
+
+.active-button {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+.inactive-button {
+  background-color: #e0e0e0 !important;
+  color: black !important;
+}
