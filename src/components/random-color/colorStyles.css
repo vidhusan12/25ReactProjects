@@ -1,0 +1,21 @@
+.color-wrapper {
+  display: flex;
+  border: 3px solid;
+  margin: 20px 40px;
+  padding: 10px 10px;
+}
+
+.color-wrapper button {
+  margin: auto;
+  padding: 10px 30px;
+  border-radius: 15px;
+}
+
+.color-wrapper h3 {
+  border: 2px solid;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: black;
+  font-size: 10px;
+  font-weight: bold;
+}
