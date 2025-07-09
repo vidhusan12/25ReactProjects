@@ -41,7 +41,9 @@ export default function LoadMoreData() {
 
   if (loading) {
     return (
-      <div className="spinner"></div>
+      <div className="spinner-container">
+        <div className="spinner"></div>
+      </div>
     );
   }
 
@@ -56,23 +58,24 @@ export default function LoadMoreData() {
         {products && products.length ? products.map((item) => (
           <div className="product" key={item.id}>
             <div className="product-image-container">
-            <img
-              src={item.thumbnail}
-              alt={item.title}
-            />
+              <img
+                src={item.thumbnail}
+                alt={item.title}
+              />
             </div>
             <div className="product-info">
-            <span className="product-title">{item.title}</span>
+              <span className="product-title">{item.title}</span>
             </div>
           </div>
         )) : null}
       </div>
 
       <div className="button-container">
+        {disableButton ? <span className="product-limit-message">You have reached to 100 products</span> : null}
         <button disabled={disableButton} onClick={() => setCount(count + 1)}>
           Load More Products
         </button>
-        {disableButton ? <p>You have reached to 100 products</p> : null}
+
         <button onClick={() => {
           setProducts([]);
           setCount(0);

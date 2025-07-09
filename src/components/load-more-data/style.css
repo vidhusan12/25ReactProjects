@@ -4,6 +4,14 @@ body {
   padding: 0;
 }
 
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px;
+  width: 100%;
+}
+
 .spinner {
   border: 4px solid #f3f3f3;
   border-top: 4px solid #3498db;
@@ -56,14 +64,20 @@ body {
   box-shadow: 0 4px 16px rgba(60, 60, 60, 0.12);
 }
 
-.product img {
+.product-image-container {
   width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 18px;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
   display: block;
-  position: static;
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0;
   
 }
 
@@ -90,11 +104,20 @@ body {
   margin-top: auto;
 }
 
+.product-limit-message {
+  font-size: 1.07rem;
+  color: #007bff;
+  font-weight: 500;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
   gap: 16px;
   margin: 24px 0px;
+  flex-wrap: wrap;
 }
 
 button {
