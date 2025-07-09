@@ -55,11 +55,15 @@ export default function LoadMoreData() {
         ) : null}
         {products && products.length ? products.map((item) => (
           <div className="product" key={item.id}>
+            <div className="product-image-container">
             <img
               src={item.thumbnail}
               alt={item.title}
             />
-            <h4 className="product-title">{item.title}</h4>
+            </div>
+            <div className="product-info">
+            <span className="product-title">{item.title}</span>
+            </div>
           </div>
         )) : null}
       </div>
