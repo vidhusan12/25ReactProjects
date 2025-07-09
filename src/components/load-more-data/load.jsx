@@ -1,35 +1,80 @@
-import { useEffect, useState } from "react"
-
+import { useState, useEffect } from "react"
+import "./style.css"
 
 export default function LoadMoreData() {
-  const [count, setCount] = useState(0);
+
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [count, setCount] = useState(0);
+  const [disableButton, setDisableButton] = useState(false);
 
+  //Fetch Function
   async function fetchProducts() {
     try {
+      setLoading(true);
       const response = await fetch(
-        `https://dummyjson.com/products?limit=20&skip=${count === 0 ? 0 : count * 20
-        }`
+        `https://dummyjson.com/products?limit=20&skip=${count === 0 ? 0 : count * 20}`
       );
 
-
       const result = await response.json();
-      console.log(result)
-      
+
+      if (result && result.products && result.products.length) {
+        setProducts((prevData) => [...prevData, ...result.products]);
+      }
+      setLoading(false);
+
     } catch (error) {
       console.log(error);
+      setLoading(false);
 
     }
-  }
+  };
 
   useEffect(() => {
-    fetchProducts()
-  }, []);
+    fetchProducts();
+  }, [count]);
+
+  //Disbale the button when 100 products are Loaded
+  useEffect(() => {
+    if (products && products.length === 100) setDisableButton(true);
+  }, [products]);
+
+  if (loading) {
+    return (
+      <div className="spinner"></div>
+    );
+  }
+
+
 
   return (
-    <div className="container">
+    <div className="load-more-container">
+      <div className="product-container">
+        {products && products.length === 0 && !loading ? (
+          <div>No Products found.</div>
+        ) : null}
+        {products && products.length ? products.map((item) => (
+          <div className="product" key={item.id}>
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+            />
+            <h4 className="product-title">{item.title}</h4>
+          </div>
+        )) : null}
+      </div>
 
+      <div className="button-container">
+        <button disabled={disableButton} onClick={() => setCount(count + 1)}>
+          Load More Products
+        </button>
+        {disableButton ? <p>You have reached to 100 products</p> : null}
+        <button onClick={() => {
+          setProducts([]);
+          setCount(0);
+          setDisableButton(false);
+        }}>Reset</button>
+      </div>
     </div>
   )
 }

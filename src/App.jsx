@@ -9,17 +9,11 @@ import LoadMoreData from './components/load-more-data/load'
 const App = () => {
   return (
     <>
-      {/* 
-      <RamdomColor />
-      <Star />
-      <Accordian / 
-      */}
-
-      {/* <Image
-        url={"https://picsum.photos/v2/list"}
-        page={"1"}
-        limit={"10"}
-      /> */}
+     
+      {/* <RamdomColor /> */} 
+      {/* <Star /> */}
+      {/* <Accordian /> */}
+      {/* <Image url={"https://picsum.photos/v2/list"} page={"1"} limit={"10"} /> */}
 
       <LoadMoreData />
 
