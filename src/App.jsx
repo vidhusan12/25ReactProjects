@@ -4,6 +4,8 @@ import RamdomColor from './components/random-color/randomColor'
 import Star from './components/star-rating/star'
 import Image from './components/image-slider/image'
 import LoadMoreData from './components/load-more-data/load'
+import TreeView from './components/tree-view'
+import menus from './components/tree-view/data'
 
 
 const App = () => {
@@ -15,7 +17,8 @@ const App = () => {
       {/* <Accordian /> */}
       {/* <Image url={"https://picsum.photos/v2/list"} page={"1"} limit={"10"} /> */}
       {/* <LoadMoreData /> */}
-      
+      <TreeView menus={menus}/>
+
 
     </>
   )
