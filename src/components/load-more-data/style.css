@@ -78,13 +78,10 @@ body {
   object-fit: contain;
   border-radius: 8px;
   margin: 0;
-  
 }
 
-
-
 .product-title {
-  margin: 18px 0 0 0 ;
+  margin: 18px 0 0 0;
   padding: 0 8px;
   font-size: 1.07rem;
   font-weight: 550;

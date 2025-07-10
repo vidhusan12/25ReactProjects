@@ -14,8 +14,8 @@ const App = () => {
       {/* <Star /> */}
       {/* <Accordian /> */}
       {/* <Image url={"https://picsum.photos/v2/list"} page={"1"} limit={"10"} /> */}
-
-      <LoadMoreData />
+      {/* <LoadMoreData /> */}
+      
 
     </>
   )
